@@ -83,27 +83,31 @@ export default function Home() {
       />
 
       {/* 2. THE CINEMATIC SPLASH PRE-LOADER */}
-<AnimatePresence>
-  {isLoading && (
-    <motion.div 
-      key="preloader"
-      initial={{ opacity: 0, scale: 0.9, letterSpacing: "0em" }}
-      animate={{ opacity: 1, scale: 1, letterSpacing: "0.4em" }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-      className="fixed inset-0 z-[10000] bg-[#030303] flex items-center justify-center"
-    >
-      <div className="text-white text-lg md:text-2xl font-light uppercase">
-        Automates Interiors
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div 
+            key="preloader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="fixed inset-0 z-[10000] bg-[#030303] flex items-center justify-center"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, letterSpacing: "0em" }}
+              animate={{ opacity: 1, scale: 1, letterSpacing: "0.4em" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="text-white text-lg md:text-2xl font-light uppercase"
+            >
+              Automates Interiors
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ========================================================= */}
-      {/* ORIGINAL SEAMLESS AMBIENT BACKGROUND                      */}
+      {/* PURE, NEUTRAL, CRISP BACKGROUND                           */}
       {/* ========================================================= */}
-      <div className="fixed inset-0 z-[-1] bg-[#050505]">
+      <div className="fixed inset-0 z-[-2] bg-[#050505]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#050505] to-[#030303]"></div>
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
@@ -121,14 +125,14 @@ export default function Home() {
             <motion.div initial={false} animate={{ opacity: activeIndex === index && isNightMode ? 1 : 0, scale: activeIndex === index ? 1 : 1.05 }} transition={{ duration: 1.2, ease: "easeInOut" }} className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${slide.imageNight})` }} />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/50 z-0"></div>
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-        {/* ORIGINAL LIQUID NAVBAR */}
+        {/* RESTORED: Floating Pill Navbar */}
         <motion.nav 
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 2, ease: "easeOut" }}
-          className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[92%] md:w-[90%] max-w-6xl z-50 flex justify-center md:justify-between items-center px-6 md:px-8 py-3 md:py-4 bg-black/20 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl"
+          className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[92%] md:w-[90%] max-w-6xl z-50 flex justify-center md:justify-between items-center px-6 md:px-8 py-3 md:py-4 bg-white/5 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl"
         >
           <div className="text-white text-xs md:text-sm lg:text-base tracking-[0.15em] md:tracking-[0.3em] font-normal uppercase text-center w-full md:w-auto">
             AUTOMATES INTERIORS
@@ -140,7 +144,6 @@ export default function Home() {
           </div>
         </motion.nav>
 
-        {/* RESPONSIVE HERO LAYOUT */}
         <div className="relative z-10 flex flex-col lg:flex-row h-full w-full items-end justify-between px-4 md:px-10 lg:px-20 pb-6 md:pb-10 lg:pb-16 pt-24 md:pt-32">
           
           <div className="flex flex-col items-start w-full lg:w-[45%] mb-4 md:mb-6 lg:mb-10">
@@ -173,6 +176,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col w-full lg:w-[55%] lg:pl-10 items-center lg:items-end">
+            {/* RESTORED: Image Thumbnail Carousel */}
             <div className="flex gap-1.5 md:gap-3 h-32 md:h-48 lg:h-[20rem] w-full lg:max-w-2xl justify-center lg:justify-end">
               {initialSlides.map((slide, index) => {
                 const isActive = index === activeIndex;
@@ -207,7 +211,7 @@ export default function Home() {
       </section>
 
       {/* ========================================= */}
-      {/* SECTION 2: THE ORIGINAL PHILOSOPHY (01)   */}
+      {/* SECTION 2: THE PHILOSOPHY (01)            */}
       {/* ========================================= */}
       <section className="relative w-full py-20 md:py-32 lg:py-48 px-6 lg:px-20 bg-transparent overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
@@ -234,8 +238,9 @@ export default function Home() {
       </section>
 
       {/* ========================================= */}
-      {/* SECTION 3: THE ORIGINAL PORTFOLIO (02)    */}
+      {/* SECTION 3: THE PORTFOLIO (02)             */}
       {/* ========================================= */}
+      {/* RESTORED: The original Masonry columns logic and rounded borders */}
       <section className="relative w-full py-16 md:py-20 lg:py-32 px-6 lg:px-20 bg-transparent relative">
         <div className="max-w-7xl mx-auto relative z-10">
           
@@ -379,7 +384,7 @@ export default function Home() {
       </div>
 
       {/* ========================================= */}
-      {/* SECTION 5: CONTACT & FOOTER (04)          */}
+      {/* RESTORED SECTION 5: CONTACT & FOOTER (04) */}
       {/* ========================================= */}
       <section className="relative w-full pt-20 md:pt-32 lg:pt-40 pb-10 px-6 lg:px-20 bg-transparent overflow-hidden">
         
