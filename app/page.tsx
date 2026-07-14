@@ -83,26 +83,22 @@ export default function Home() {
       />
 
       {/* 2. THE CINEMATIC SPLASH PRE-LOADER */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div 
-            key="preloader"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="fixed inset-0 z-[10000] bg-[#030303] flex items-center justify-center"
-          >
-           <motion.div
-  initial={{ opacity: 0, scale: 0.9, letterSpacing: "0em" }}
-  animate={{ opacity: 1, scale: 1, letterSpacing: "0.4em" }}
-  transition={{ duration: 1.5, ease: "easeOut" }}
-  className="text-white text-lg md:text-2xl font-light uppercase"
->
-  Automates Interiors
-</motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {isLoading && (
+    <motion.div 
+      key="preloader"
+      initial={{ opacity: 0, scale: 0.9, letterSpacing: "0em" }}
+      animate={{ opacity: 1, scale: 1, letterSpacing: "0.4em" }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="fixed inset-0 z-[10000] bg-[#030303] flex items-center justify-center"
+    >
+      <div className="text-white text-lg md:text-2xl font-light uppercase">
+        Automates Interiors
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* ========================================================= */}
       {/* ORIGINAL SEAMLESS AMBIENT BACKGROUND                      */}
