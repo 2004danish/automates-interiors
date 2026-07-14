@@ -92,14 +92,14 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className="fixed inset-0 z-[10000] bg-[#030303] flex items-center justify-center"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, tracking: "0em" }}
-              animate={{ opacity: 1, scale: 1, tracking: "0.4em" }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="text-white text-lg md:text-2xl font-light uppercase"
-            >
-              Automates Interiors
-            </motion.div>
+           <motion.div
+  initial={{ opacity: 0, scale: 0.9, letterSpacing: "0em" }}
+  animate={{ opacity: 1, scale: 1, letterSpacing: "0.4em" }}
+  transition={{ duration: 1.5, ease: "easeOut" }}
+  className="text-white text-lg md:text-2xl font-light uppercase"
+>
+  Automates Interiors
+</motion.div>
           </motion.div>
         )}
       </AnimatePresence>
